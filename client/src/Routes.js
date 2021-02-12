@@ -1,12 +1,20 @@
-import React from 'react';
-import { Route, IndexRoute } from 'react-router';
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import App from './components/App';
-import Results from './components/App';
+import App from "./App";
+import Results from "./Results";
 
-export default (
-  <Route path="/" component={App}>
-    <IndexRoute component={App} />
-    <Route path="/result" component={Results} />
-  </Route>
-);
+export default function Routes() {
+  return (
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <App />
+        </Route>
+        <Route path="/results">
+          <Results />
+        </Route>
+      </Switch>
+    </Router>
+  );
+}

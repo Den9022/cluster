@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import { useDrop } from "react-dnd";
 import EmbeddingElem from "./EmbeddingElem";
 
@@ -7,18 +7,19 @@ export const GroupElem = ({ id, setsortedGroups }) => {
 
   const ref = useRef(null);
 
-  /*useEffect(() => {
-    setsortedGroups([id, items]);
-  }, items);*/
-
   const renderEmbeddingElem = (value) => {
     return <EmbeddingElem text={value} />;
   };
   const [, drop] = useDrop({
     accept: "embeddingElem",
     drop(item) {
-      setItems((oldItems) => [...oldItems, [item.text]]);
-      setsortedGroups([id, items]);
+      var itemSaved = async () => {
+        return await new Promise((resolve) => {
+          setItems((oldItems) => [...oldItems, [item.text]]);
+          resolve();
+        });
+      };
+      itemSaved().then(setsortedGroups(id, items));
     },
   });
 

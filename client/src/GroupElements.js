@@ -1,15 +1,10 @@
 import React from "react";
 import GroupElem from "./GroupElem";
-//import axios from "axios";
 
-function GroupElements({groups, setsortedGroups}) {
-  /*const getGroups = () => {
-    axios.get(`http://localhost:9000/groups`).then((res) => {
-      setGroups(res.data);
-    });
-  };*/
+function GroupElements({ groups, setsortedGroups }) {
 
   const renderGroupElem = (input) => {
+    setsortedGroups(input.id, []);
     return <GroupElem id={input.id} setsortedGroups={setsortedGroups} />;
   };
 
@@ -18,7 +13,7 @@ function GroupElements({groups, setsortedGroups}) {
 
     for (let index = 0; index < parseInt(groups); index++) {
       let elem = {
-        id: "group" + index + 1,
+        id: "group_" + (index + 1),
       };
       groupElements.push(elem);
     }
