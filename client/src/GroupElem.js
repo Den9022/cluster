@@ -27,7 +27,7 @@ export const GroupElem = ({ id, setsortedGroups }) => {
 
   drop(ref);
   return (
-    <div ref={ref} key={id} class="groupElem">
+    <div ref={ref} key={id} className="groupElem">
       <p>{id}</p>
       {items.length > 0 && items.map((elem) => renderEmbeddingElem(elem))}
     </div>

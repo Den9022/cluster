@@ -5,7 +5,7 @@ function GroupElements({ groups, setsortedGroups }) {
 
   const renderGroupElem = (input) => {
     setsortedGroups(input.id, []);
-    return <GroupElem id={input.id} setsortedGroups={setsortedGroups} />;
+    return <GroupElem key={input.id} id={input.id} setsortedGroups={setsortedGroups} />;
   };
 
   if (groups) {
@@ -20,13 +20,13 @@ function GroupElements({ groups, setsortedGroups }) {
 
     return (
       <>
-        <div class="groupElements">
+        <div className="groupElements">
           {groupElements.map((input) => renderGroupElem(input))}
         </div>
       </>
     );
   } else {
-    return <div class="groupElements"></div>;
+    return <div className="groupElements"></div>;
   }
 }
 

@@ -24,7 +24,7 @@ export const EmbeddingElem = ({ id, text }) => {
       ref={ref}
       key={id}
       id={id}
-      class="embeddingElem"
+      className="embeddingElem"
       style={{ opacity: isDisabled ? 0 : 1 }}
     >
       {text}

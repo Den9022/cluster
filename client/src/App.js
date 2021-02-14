@@ -9,13 +9,12 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import { Link } from "react-router-dom";
 
 function App() {
-
   const { isSubmitted, inputs, handleInputChange, handleSubmit } = HandleForm();
   var sortedGroups = [];
 
   const sendToApi = (inputs, treshold) => {
     axios.post("http://localhost:9000/back", {
-      data: {inputs, treshold},
+      data: { inputs, treshold },
       /*headers: {
         'Content-Type': 'application/json;charset=UTF-8',
         "Access-Control-Allow-Origin": "*",
@@ -30,11 +29,12 @@ function App() {
     console.log(inputs);
     console.log("sending sortedGroups: ", sortedGroups);
     sendToApi(sortedGroups, inputs.thresholdValue);
+
   };
 
   function setsortedGroups(id, items) {
     console.log("id: ", id);
-    console.log("items: " , items);
+    console.log("items: ", items);
 
     var found = false;
     var length = sortedGroups.length;
@@ -86,58 +86,70 @@ function App() {
 
         <article>
           <form onSubmit={handleSubmit}>
-            <div>
-              <label for="randomSeed">Random seed</label>
+            <div className="input">
+              <label>Random seed:</label>
               <input
                 name="randomSeed"
                 type="number"
+                min="0"
+                max="20"
                 onChange={handleInputChange}
                 value={inputs.randomSeed}
               ></input>
             </div>
-            <div>
-              <label for="embeddingCount">Embebedding-ek száma</label>
+            <div className="input">
+              <label>Embebedding-ek száma:</label>
               <input
                 name="embeddingCount"
                 type="number"
+                min="0"
+                max="20"
                 onChange={handleInputChange}
                 value={inputs.embeddingCount}
               ></input>
             </div>
-            <div>
-              <label for="embeddingLength">Embebedding-ek hossza</label>
+            <div className="input">
+              <label>Embebedding-ek hossza:</label>
               <input
                 name="embeddingLength"
                 type="number"
+                min="0"
+                max="20"
                 onChange={handleInputChange}
                 value={inputs.embeddingLength}
               ></input>
             </div>
-            <div>
-              <label for="vectorCount">Vektorhalmazok száma</label>
+            <div className="input">
+              <label>Vektorhalmazok száma:</label>
               <input
                 name="vectorCount"
                 type="number"
+                min="0"
+                max="20"
                 onChange={handleInputChange}
                 value={inputs.vectorCount}
               ></input>
             </div>
-            <div>
-              <label for="thresholdValue">Threshold érték</label>
+            <div className="input">
+              <label>Threshold érték:</label>
               <input
                 name="thresholdValue"
                 type="number"
+                min="0"
+                max="20"
                 onChange={handleInputChange}
                 value={inputs.thresholdValue}
               ></input>
             </div>
-            <button name="geneareEmbedding" type="submit">
-              Embedding-ek generálása
-            </button>
+            <div className="buttons">
+              <button className="button" name="geneareEmbedding" type="submit">
+                Embedding-ek generálása
+              </button>
+            </div>
           </form>
-          <div>
+          <div className="buttons">
             <form onSubmit={handleClusterSubmit}>
-              <button name="run" type="submit">
+              <button className="button" name="run" type="submit">
                 Újra klaszterezés futtatása
               </button>
             </form>

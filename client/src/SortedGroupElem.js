@@ -7,7 +7,7 @@ export const SortedGroupElem = ({ input, id }) => {
   };
 
   return (
-    <div key={id} class="groupElem">
+    <div className="groupElem">
       <p>{id}</p>
       {input.length > 0 && input.map((elem) => renderEmbeddingElem(elem))}
     </div>

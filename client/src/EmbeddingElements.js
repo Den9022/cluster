@@ -11,24 +11,17 @@ function EmbeddingElements({ inputs }) {
   };
 
   if (Object.keys(inputs).length > 0) {
-    let fake_inputs = {
-      randomSeed: 11,
-      embeddingCount: 8,
-      embeddingLength: 4,
-      vectorCount: 3,
-      thresholdValue: 4,
-    };
 
     let elements = [];
 
     const renderEmbeddingElem = (input) => {
-      return <EmbeddingElem id={input.id} text={input.text} />;
+      return <EmbeddingElem key={input.id} id={input.id} text={input.text} />;
     };
 
-    for (let index = 0; index < fake_inputs.embeddingCount; index++) {
+    for (let index = 0; index < inputs.embeddingCount; index++) {
       let vectors = generareRandomVectors(
-        fake_inputs.embeddingLength,
-        fake_inputs.randomSeed
+        inputs.embeddingLength,
+        inputs.randomSeed
       );
 
       let elem = {
@@ -41,13 +34,13 @@ function EmbeddingElements({ inputs }) {
 
     return (
       <>
-        <div class="embeddingElements">
+        <div className="embeddingElements">
           {elements.map((input) => renderEmbeddingElem(input))}
         </div>
       </>
     );
   } else {
-    return <div class="embeddingElements"></div>;
+    return <div className="embeddingElements"></div>;
   }
 }
 

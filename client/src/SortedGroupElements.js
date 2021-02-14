@@ -17,7 +17,7 @@ function SortedGroupElements() {
   }, []);
 
   const renderGroupElem = (input, id) => {
-    return <SortedGroupElem input={input} id={id} />;
+    return <SortedGroupElem key={id} input={input} id={id} />;
   };
 
   async function getDataFromApi() {
@@ -37,13 +37,13 @@ function SortedGroupElements() {
     }
     return (
       <>
-        <div class="groupElements">
+        <div className="groupElements">
           {groupElements.map((input) => renderGroupElem(input.items, input.id))}
         </div>
       </>
     );
   } else {
-    return <div class="groupElements"></div>;
+    return <div className="groupElements"></div>;
   }
 }
 
