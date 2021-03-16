@@ -2,11 +2,11 @@ import { useState } from "react";
 
 const HandleForm = () => {
   const [inputs, setInputs] = useState({
-    randomSeed: 0,
-    embeddingCount: 0,
-    embeddingLength: 0,
-    vectorCount: 0,
-    thresholdValue: 0,
+    randomSeed: 11,
+    embeddingCount: 8,
+    embeddingLength: 3,
+    vectorCount: 3,
+    thresholdValue: 2,
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 

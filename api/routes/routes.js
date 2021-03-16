@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-var redis = require("../db/db");
+//var redis = require("../db/db");
 var output = require("./../test_groups.json");
 //const { exec } = require('./../../klaszterezo_algoritmus_bin/lexunit-exercise-linux-amd64');
 
@@ -23,6 +23,7 @@ router.route("/back").post((req, res) => {
     console.log(`stdout: ${stdout}`);
     console.log(`stderr: ${stderr}`);
   });*/
+  console.log(groups);
 
   //redis.write('key1', req.body.data)
   //redis.read('key1');

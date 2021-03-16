@@ -13,4 +13,4 @@ npm start
 cd api
 npm start
 
-# Redis adatbázise fut a backenden, de a redis-server nélkül is elindul a projekt.
+# Redis adatbázis fut a backenden, de a redis-server nélkül is elindul a projekt.

@@ -8,7 +8,7 @@ export const GroupElem = ({ id, setsortedGroups }) => {
   const ref = useRef(null);
 
   const renderEmbeddingElem = (value) => {
-    return <EmbeddingElem text={value} />;
+    return <EmbeddingElem key={value.join()} text={value} />;
   };
   const [, drop] = useDrop({
     accept: "embeddingElem",

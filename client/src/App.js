@@ -33,8 +33,7 @@ function App() {
   };
 
   function setsortedGroups(id, items) {
-    console.log("id: ", id);
-    console.log("items: ", items);
+    console.log("beforesortitems: ", items);
 
     var found = false;
     var length = sortedGroups.length;
